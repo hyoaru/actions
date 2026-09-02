@@ -1,0 +1,15 @@
+name: "Checkout"
+description: "Checkout a Git repository at a particular version"
+
+inputs:
+  fetch-depth:
+    description: "Number of commits to fetch. 0 for all history"
+    default: "1"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}

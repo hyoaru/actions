@@ -1,0 +1,35 @@
+name: "Setup Node"
+description: "Setup a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH."
+
+inputs:
+  node-version:
+    description: "Version Spec of the version to use in SemVer notation. Examples: 12.x, 10.15.1, >=10.15.0, lts/*, lts/Hydrogen, 16-nightly, latest, node"
+    default: ""
+  node-version-file:
+    description: "File containing the version Spec of the version to use. Examples: package.json, .nvmrc, .node-version, .tool-versions"
+    default: ""
+  architecture:
+    description: "Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default."
+    default: ""
+  cache:
+    description: "Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm"
+    default: ""
+  cache-dependency-path:
+    description: "Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc."
+    default: ""
+  package-manager-cache:
+    description: "Used to enable or disable automatic npm caching. Set to false to disable."
+    default: "true"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: ${{ inputs.node-version }}
+        node-version-file: ${{ inputs.node-version-file }}
+        architecture: ${{ inputs.architecture }}
+        cache: ${{ inputs.cache }}
+        cache-dependency-path: ${{ inputs.cache-dependency-path }}
+        package-manager-cache: ${{ inputs.package-manager-cache }}
