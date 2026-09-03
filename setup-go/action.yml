@@ -1,0 +1,49 @@
+name: "Setup Go"
+description: "Setup a Go environment and add it to the PATH."
+
+inputs:
+  go-version:
+    description: "The Go version to download (if necessary) and use. Supports semver spec and ranges. Be sure to enclose this option in single quotation marks."
+    default: ""
+  go-version-file:
+    description: "Path to the go.mod, go.work, .go-version, or .tool-versions file."
+    default: ""
+  check-latest:
+    description: "Set this option to true if you want the action to always check for the latest available version that satisfies the version spec"
+    default: "false"
+  token:
+    description: "Used to pull Go distributions from go-versions. Since there's a default, this is typically not supplied by the user."
+    default: ${{ github.server_url == 'https://github.com' && github.token || '' }}
+  cache:
+    description: "Used to specify whether caching is needed. Set to true, if you'd like to enable caching."
+    default: "true"
+  cache-dependency-path:
+    description: "Used to specify the path to a dependency file (e.g., go.mod, go.sum)"
+    default: ""
+  architecture:
+    description: "Target architecture for Go to use. Examples: x86, x64. Will use system architecture by default."
+    default: ""
+  go-download-base-url:
+    description: "Custom base URL for downloading Go distributions. Defaults to https://go.dev/dl"
+    default: ""
+
+outputs:
+  go-version:
+    description: "The installed Go version. Useful when given a version range as input."
+  cache-hit:
+    description: "A boolean value to indicate if a cache was hit"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Go
+      uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+      with:
+        go-version: ${{ inputs.go-version }}
+        go-version-file: ${{ inputs.go-version-file }}
+        check-latest: ${{ inputs.check-latest }}
+        token: ${{ inputs.token }}
+        cache: ${{ inputs.cache }}
+        cache-dependency-path: ${{ inputs.cache-dependency-path }}
+        architecture: ${{ inputs.architecture }}
+        go-download-base-url: ${{ inputs.go-download-base-url }}

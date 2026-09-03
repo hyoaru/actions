@@ -19,6 +19,7 @@ Tags are mutable and can be moved to malicious code at any time. Commit SHAs are
 | Action                                                    | SHA       | Upstream                                                                                                 |
 | --------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------- |
 | [`checkout`](checkout/)                                   | `3d3c42e` | [actions/checkout](https://github.com/actions/checkout) v7.0.1                                           |
+| [`setup-go`](setup-go/)                                   | `b7ad1da` | [actions/setup-go](https://github.com/actions/setup-go) v7.0.0                                           |
 | [`setup-node`](setup-node/)                               | `8207627` | [actions/setup-node](https://github.com/actions/setup-node) v7.0.0                                       |
 | [`upload-artifact`](upload-artifact/)                     | `043fb46` | [actions/upload-artifact](https://github.com/actions/upload-artifact) v7.0.1                             |
 | [`download-artifact`](download-artifact/)                 | `3e5f45b` | [actions/download-artifact](https://github.com/actions/download-artifact) v8.0.1                         |
