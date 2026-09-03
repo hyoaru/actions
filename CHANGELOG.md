@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/hyoaru/actions/compare/v1.0.0...v1.1.0) (2026-09-03)
+
+
+### Features
+
+* configure aws creeds ([5cae60b](https://github.com/hyoaru/actions/commit/5cae60b7ab7d12ea09e6c0e7a23888d54b1ac280))
+
 # 1.0.0 (2026-09-02)
 
 
