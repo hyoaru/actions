@@ -30,9 +30,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: hyoaru/actions/checkout@main
+      - uses: hyoaru/actions/checkout@v1
 
-      - uses: hyoaru/actions/setup-node@main
+      - uses: hyoaru/actions/setup-node@v1
         with:
           node-version: 20
           cache: "npm"
@@ -40,7 +40,7 @@ jobs:
       - run: npm ci
       - run: npm test
 
-      - uses: hyoaru/actions/upload-artifact@main
+      - uses: hyoaru/actions/upload-artifact@v1
         with:
           name: build-output
           path: dist/
