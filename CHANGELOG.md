@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/hyoaru/actions/compare/v1.1.1...v1.2.0) (2026-09-03)
+
+
+### Features
+
+* setup-go ([0d0409a](https://github.com/hyoaru/actions/commit/0d0409a3021f62531126b969324d463b6e4403c9))
+
 ## [1.1.1](https://github.com/hyoaru/actions/compare/v1.1.0...v1.1.1) (2026-09-03)
 
 
