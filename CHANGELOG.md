@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/hyoaru/actions/compare/v1.1.0...v1.1.1) (2026-09-03)
+
+
+### Bug Fixes
+
+* upload artifact warnings ([47bff6c](https://github.com/hyoaru/actions/commit/47bff6cdf5ec407fb599471d99268d78e5645e06))
+
 # [1.1.0](https://github.com/hyoaru/actions/compare/v1.0.0...v1.1.0) (2026-09-03)
 
 
