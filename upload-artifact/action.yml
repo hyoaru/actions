@@ -20,11 +20,8 @@ inputs:
   if-no-files-found:
     description: "Behavior when no files are found. Options: warn, error, ignore"
     default: "warn"
-  hidden-files:
+  include-hidden-files:
     description: "If true, hidden files are included in the artifact"
-    default: "false"
-  structure-files:
-    description: "If true, the directory structure is preserved"
     default: "false"
 
 runs:
@@ -39,5 +36,4 @@ runs:
         compression-level: ${{ inputs.compression-level }}
         overwrite: ${{ inputs.overwrite }}
         if-no-files-found: ${{ inputs.if-no-files-found }}
-        hidden-files: ${{ inputs.hidden-files }}
-        structure-files: ${{ inputs.structure-files }}
+        include-hidden-files: ${{ inputs.include-hidden-files }}
