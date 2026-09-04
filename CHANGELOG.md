@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/hyoaru/actions/compare/v1.2.0...v1.3.0) (2026-09-04)
+
+
+### Features
+
+* add action status discord ([195dde6](https://github.com/hyoaru/actions/commit/195dde6b22f99d79f61b257c2ee20fefa23531a5))
+
 # [1.2.0](https://github.com/hyoaru/actions/compare/v1.1.1...v1.2.0) (2026-09-03)
 
 
