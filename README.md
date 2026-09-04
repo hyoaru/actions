@@ -24,6 +24,7 @@ Tags are mutable and can be moved to malicious code at any time. Commit SHAs are
 | [`upload-artifact`](upload-artifact/)                     | `043fb46` | [actions/upload-artifact](https://github.com/actions/upload-artifact) v7.0.1                             |
 | [`download-artifact`](download-artifact/)                 | `3e5f45b` | [actions/download-artifact](https://github.com/actions/download-artifact) v8.0.1                         |
 | [`configure-aws-credentials`](configure-aws-credentials/) | `cbe3b39` | [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials) v6.2.4 |
+| [`actions-status-discord`](actions-status-discord/) | `eb045af` | [sarisia/actions-status-discord](https://github.com/sarisia/actions-status-discord) v1.16.0 |
 
 ## Usage
 

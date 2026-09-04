@@ -1,0 +1,95 @@
+name: "Actions Status Discord"
+description: "Post GitHub Actions CI status to Discord"
+
+inputs:
+  webhook:
+    description: "Discord webhook endpoint. If not set, env.DISCORD_WEBHOOK will be used."
+    required: false
+    default: ""
+  status:
+    description: "Job status. Should be bound to job.status."
+    required: false
+    default: ${{ job.status }}
+  content:
+    description: "Content. Shown as a message outside of the embed."
+    required: false
+    default: ""
+  title:
+    description: "String included in embed title."
+    required: false
+    default: ${{ github.workflow }}
+  description:
+    description: "Description included in message"
+    required: false
+    default: ""
+  image:
+    description: "Image attached to the message"
+    required: false
+    default: ""
+  color:
+    description: "Overrides Discord embed color"
+    required: false
+    default: ""
+  url:
+    description: "URL to jump when the title is clicked"
+    required: false
+    default: ""
+  username:
+    description: "Overrides Discord webhook username"
+    required: false
+    default: ""
+  avatar_url:
+    description: "Overrides Discord webhook avatar url"
+    required: false
+    default: ""
+  nofail:
+    description: "This action won't make workflow failed by default."
+    required: false
+    default: "true"
+  nocontext:
+    description: "Suppress GitHub context fields"
+    required: false
+    default: "false"
+  noprefix:
+    description: "Avoid appending job status to title"
+    required: false
+    default: "false"
+  nodetail:
+    description: "Suppress detailed embed fields"
+    required: false
+    default: "false"
+  notimestamp:
+    description: "Avoid appending timestamp"
+    required: false
+    default: "false"
+  ack_no_webhook:
+    description: "Suppress error which raised when webhook is not set"
+    required: false
+    default: "false"
+
+outputs:
+  payload:
+    description: "Discord webhook payload"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Send Discord Notification
+      uses: sarisia/actions-status-discord@eb045afee445dc055c18d3d90bd0f244fd062708 # v1.16.0
+      with:
+        webhook: ${{ inputs.webhook }}
+        status: ${{ inputs.status }}
+        content: ${{ inputs.content }}
+        title: ${{ inputs.title }}
+        description: ${{ inputs.description }}
+        image: ${{ inputs.image }}
+        color: ${{ inputs.color }}
+        url: ${{ inputs.url }}
+        username: ${{ inputs.username }}
+        avatar_url: ${{ inputs.avatar_url }}
+        nofail: ${{ inputs.nofail }}
+        nocontext: ${{ inputs.nocontext }}
+        noprefix: ${{ inputs.noprefix }}
+        nodetail: ${{ inputs.nodetail }}
+        notimestamp: ${{ inputs.notimestamp }}
+        ack_no_webhook: ${{ inputs.ack_no_webhook }}
