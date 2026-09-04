@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/hyoaru/actions/compare/v1.3.0...v1.3.1) (2026-09-04)
+
+
+### Bug Fixes
+
+* add ref input ([5fa1dce](https://github.com/hyoaru/actions/commit/5fa1dce870cfd88f3a6e81c86ecafbc4e30abb2e))
+
 # [1.3.0](https://github.com/hyoaru/actions/compare/v1.2.0...v1.3.0) (2026-09-04)
 
 
