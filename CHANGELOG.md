@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/hyoaru/actions/compare/v1.3.1...v1.4.0) (2026-09-24)
+
+
+### Features
+
+* trivy ([556e227](https://github.com/hyoaru/actions/commit/556e227450bf257c3492918cac74652ff427a0bf))
+
 ## [1.3.1](https://github.com/hyoaru/actions/compare/v1.3.0...v1.3.1) (2026-09-04)
 
 
