@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/hyoaru/actions/compare/v1.4.0...v1.5.0) (2026-09-24)
+
+
+### Features
+
+* cache ([876488f](https://github.com/hyoaru/actions/commit/876488f2c2db2c8afe0447a6320db163a4d699f5))
+
 # [1.4.0](https://github.com/hyoaru/actions/compare/v1.3.1...v1.4.0) (2026-09-24)
 
 
