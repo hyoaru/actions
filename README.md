@@ -26,6 +26,7 @@ Tags are mutable and can be moved to malicious code at any time. Commit SHAs are
 | [`configure-aws-credentials`](configure-aws-credentials/) | `cbe3b39` | [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials) v6.2.4 |
 | [`actions-status-discord`](actions-status-discord/) | `eb045af` | [sarisia/actions-status-discord](https://github.com/sarisia/actions-status-discord) v1.16.0 |
 | [`trivy`](trivy/) | `ed142fd` | [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action) v0.36.0 |
+| [`cache`](cache/) | `55cc834` | [actions/cache](https://github.com/actions/cache) v6.1.0 |
 
 ## Usage
 
