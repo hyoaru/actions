@@ -1,0 +1,156 @@
+name: "Trivy"
+description: "Scanner for vulnerabilities in container images, file systems, and Git repositories"
+
+inputs:
+  scan-type:
+    description: "Scan type to use for scanning vulnerability"
+    required: false
+    default: "image"
+  image-ref:
+    description: "image reference (for backward compatibility)"
+    required: false
+    default: ""
+  input:
+    description: "reference of tar file to scan"
+    required: false
+    default: ""
+  scan-ref:
+    description: "Scan reference"
+    required: false
+    default: "."
+  exit-code:
+    description: "exit code when vulnerabilities were found"
+    required: false
+    default: ""
+  ignore-unfixed:
+    description: "ignore unfixed vulnerabilities"
+    required: false
+    default: "false"
+  vuln-type:
+    description: "comma-separated list of vulnerability types (os,library)"
+    required: false
+    default: "os,library"
+  severity:
+    description: "severities of vulnerabilities to be displayed"
+    required: false
+    default: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+  format:
+    description: "output format (table, json, template)"
+    required: false
+    default: "table"
+  template:
+    description: "use an existing template for rendering output (@/contrib/gitlab.tpl, @/contrib/junit.tpl, @/contrib/html.tpl)"
+    required: false
+    default: ""
+  output:
+    description: "writes results to a file with the specified file name"
+    required: false
+    default: ""
+  skip-dirs:
+    description: "comma separated list of directories where traversal is skipped"
+    required: false
+    default: ""
+  skip-files:
+    description: "comma separated list of files to be skipped"
+    required: false
+    default: ""
+  cache-dir:
+    description: "specify where the cache is stored"
+    required: false
+    default: ${{ github.workspace }}/.cache/trivy
+  timeout:
+    description: "timeout (default 5m0s)"
+    required: false
+    default: ""
+  ignore-policy:
+    description: "filter vulnerabilities with OPA rego language"
+    required: false
+    default: ""
+  hide-progress:
+    description: "suppress progress bar and log output"
+    required: false
+    default: ""
+  list-all-pkgs:
+    description: "output all packages regardless of vulnerability"
+    required: false
+    default: "false"
+  scanners:
+    description: "comma-separated list of what security issues to detect"
+    required: false
+    default: ""
+  trivyignores:
+    description: "comma-separated list of relative paths within the repository to one or more .trivyignore files, or a single .trivyignore.yaml file."
+    required: false
+    default: ""
+  github-pat:
+    description: "GitHub Personal Access Token (PAT) for submitting SBOM to GitHub Dependency Snapshot API"
+    required: false
+    default: ""
+  trivy-config:
+    description: "path to trivy.yaml config"
+    required: false
+    default: ""
+  tf-vars:
+    description: "path to terraform tfvars file"
+    required: false
+    default: ""
+  limit-severities-for-sarif:
+    description: "limit severities for SARIF format"
+    required: false
+    default: ""
+  docker-host:
+    description: "unix domain socket path to use for docker scanning, ex. unix:///var/run/docker.sock"
+    required: false
+    default: ""
+  version:
+    description: "Trivy version to use"
+    required: false
+    default: "v0.70.0"
+  cache:
+    description: "Used to specify whether caching is needed. Set to false, if you would like to disable caching."
+    required: false
+    default: "true"
+  skip-setup-trivy:
+    description: "skip calling the setup-trivy action to install trivy"
+    required: false
+    default: "false"
+  token-setup-trivy:
+    description: "Token used to fetch the Trivy repository when installing Trivy via setup-trivy. Required when github.token is invalid for the server."
+    required: false
+    default: ${{ github.token }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Trivy
+      uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+      with:
+        scan-type: ${{ inputs.scan-type }}
+        image-ref: ${{ inputs.image-ref }}
+        input: ${{ inputs.input }}
+        scan-ref: ${{ inputs.scan-ref }}
+        exit-code: ${{ inputs.exit-code }}
+        ignore-unfixed: ${{ inputs.ignore-unfixed }}
+        vuln-type: ${{ inputs.vuln-type }}
+        severity: ${{ inputs.severity }}
+        format: ${{ inputs.format }}
+        template: ${{ inputs.template }}
+        output: ${{ inputs.output }}
+        skip-dirs: ${{ inputs.skip-dirs }}
+        skip-files: ${{ inputs.skip-files }}
+        cache-dir: ${{ inputs.cache-dir }}
+        timeout: ${{ inputs.timeout }}
+        ignore-policy: ${{ inputs.ignore-policy }}
+        hide-progress: ${{ inputs.hide-progress }}
+        list-all-pkgs: ${{ inputs.list-all-pkgs }}
+        scanners: ${{ inputs.scanners }}
+        trivyignores: ${{ inputs.trivyignores }}
+        github-pat: ${{ inputs.github-pat }}
+        trivy-config: ${{ inputs.trivy-config }}
+        tf-vars: ${{ inputs.tf-vars }}
+        limit-severities-for-sarif: ${{ inputs.limit-severities-for-sarif }}
+        docker-host: ${{ inputs.docker-host }}
+        version: ${{ inputs.version }}
+        cache: ${{ inputs.cache }}
+        skip-setup-trivy: ${{ inputs.skip-setup-trivy }}
+        token-setup-trivy: ${{ inputs.token-setup-trivy }}
